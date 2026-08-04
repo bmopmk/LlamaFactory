@@ -1,5 +1,5 @@
 ### model
-model_name_or_path: Qwen/Qwen3-4B-Instruct-2507
+model_name_or_path: /data/home/genghaoyu/llm/vllm/models/Qwen3-4B-Instruct-2507
 adapter_name_or_path: saves/qwen3-4b/lora/pretrain  # 接住 pt 阶段产出的 adapter，继续训练
 trust_remote_code: true
 

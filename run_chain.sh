@@ -8,6 +8,10 @@ set -euo pipefail   # 任一步失败/未定义变量/管道错误立即终止
 # 切到脚本所在目录(即项目根),保证相对路径正确
 cd "$(dirname "$0")"
 
+# 离线模式: 训练机无外网, 只用本地模型/数据, 避免联网重试
+export HF_HUB_OFFLINE=1
+export TRANSFORMERS_OFFLINE=1
+
 echo "==================== [1/3] 预训练 (pt) ===================="
 CUDA_VISIBLE_DEVICES=0 llamafactory-cli train examples/chain/qwen3_pt.yaml
 
