@@ -9,12 +9,12 @@ set -euo pipefail   # 任一步失败/未定义变量/管道错误立即终止
 cd "$(dirname "$0")"
 
 echo "==================== [1/3] 预训练 (pt) ===================="
-llamafactory-cli train examples/chain/qwen3_pt.yaml
+CUDA_VISIBLE_DEVICES=0 llamafactory-cli train examples/chain/qwen3_pt.yaml
 
 echo "==================== [2/3] 监督微调 (sft) ===================="
-llamafactory-cli train examples/chain/qwen3_sft.yaml
+CUDA_VISIBLE_DEVICES=0 llamafactory-cli train examples/chain/qwen3_sft.yaml
 
 echo "==================== [3/3] 偏好对齐 (dpo) ===================="
-llamafactory-cli train examples/chain/qwen3_dpo.yaml
+CUDA_VISIBLE_DEVICES=0 llamafactory-cli train examples/chain/qwen3_dpo.yaml
 
 echo "✅ pt → sft → dpo 全部完成，最终产物在 saves/qwen3-4b/lora/dpo"
