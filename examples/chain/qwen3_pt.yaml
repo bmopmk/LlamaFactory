@@ -1,5 +1,5 @@
 ### model
-model_name_or_path: /data/home/genghaoyu/llm/vllm/models/Qwen3-4B-Instruct-2507
+model_name_or_path: /home/genghaoyu/llm/vllm/models/Qwen3-0.6B
 trust_remote_code: true
 
 ### method
@@ -10,20 +10,21 @@ lora_rank: 8
 lora_target: all
 
 ### dataset
-dataset: c4_demo
+dataset: wikipedia_zh_local
 cutoff_len: 2048
-max_samples: 1000
+max_samples: 800
 preprocessing_num_workers: 16
 dataloader_num_workers: 4
 
 ### output
-output_dir: saves/qwen3-4b/lora/pretrain
+output_dir: saves/qwen3-0.6b/lora/pretrain
 logging_steps: 10
 save_steps: 500
 plot_loss: true
 overwrite_output_dir: true
 save_only_model: false
-report_to: none  # choices: [none, wandb, tensorboard, swanlab, mlflow]
+report_to: tensorboard  # choices: [none, wandb, tensorboard, swanlab, mlflow]
+logging_dir: saves/qwen3-0.6b/lora/pretrain/runs
 
 ### train
 per_device_train_batch_size: 1

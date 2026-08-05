@@ -1,4 +1,23 @@
 {
+  "wikipedia_zh_local": {
+    "file_name": "wikipedia_zh",
+    "columns": {
+      "prompt": "completion"
+    }
+  },
+  "alpaca_gpt4_en_local": {
+    "file_name": "alpaca_gpt4_en"
+  },
+  "dpo_mix_en_local": {
+    "file_name": "dpo_mix/en",
+    "ranking": true,
+    "formatting": "sharegpt",
+    "columns": {
+      "messages": "conversations",
+      "chosen": "chosen",
+      "rejected": "rejected"
+    }
+  },
   "identity": {
     "file_name": "identity.json"
   },
