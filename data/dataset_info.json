@@ -1,15 +1,15 @@
 {
   "wikipedia_zh_local": {
-    "file_name": "wikipedia_zh",
+    "file_name": "wikipedia_zh/wikipedia-cn-20230720-filtered.json",
     "columns": {
       "prompt": "completion"
     }
   },
   "alpaca_gpt4_en_local": {
-    "file_name": "alpaca_gpt4_en"
+    "file_name": "alpaca_gpt4_en/alpaca_gpt4_data_en.json"
   },
   "dpo_mix_en_local": {
-    "file_name": "dpo_mix/en",
+    "file_name": "dpo_mix/dpo_en.json",
     "ranking": true,
     "formatting": "sharegpt",
     "columns": {
