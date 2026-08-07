@@ -13,12 +13,12 @@ export HF_HUB_OFFLINE=1
 export TRANSFORMERS_OFFLINE=1
 
 echo "==================== [1/3] 预训练 (pt) ===================="
-CUDA_VISIBLE_DEVICES=0 llamafactory-cli train examples/chain/qwen3_pt.yaml
+CUDA_VISIBLE_DEVICES=0 TQDM_MININTERVAL=60 llamafactory-cli train examples/chain/qwen3_pt.yaml
 
 echo "==================== [2/3] 监督微调 (sft) ===================="
-CUDA_VISIBLE_DEVICES=0 llamafactory-cli train examples/chain/qwen3_sft.yaml
+CUDA_VISIBLE_DEVICES=0 TQDM_MININTERVAL=60 llamafactory-cli train examples/chain/qwen3_sft.yaml
 
 echo "==================== [3/3] 偏好对齐 (dpo) ===================="
-CUDA_VISIBLE_DEVICES=0 llamafactory-cli train examples/chain/qwen3_dpo.yaml
+CUDA_VISIBLE_DEVICES=0 TQDM_MININTERVAL=60 llamafactory-cli train examples/chain/qwen3_dpo.yaml
 
 echo "✅ pt → sft → dpo 全部完成，最终产物在 saves/qwen3-4b/lora/dpo"
