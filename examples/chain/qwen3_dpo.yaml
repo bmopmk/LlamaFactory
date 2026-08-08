@@ -30,10 +30,16 @@ save_only_model: false
 report_to: tensorboard  # choices: [none, wandb, tensorboard, swanlab, mlflow]
 logging_dir: saves/qwen3-0.6b/lora/dpo/runs
 
+### eval
+val_size: 0.05
+per_device_eval_batch_size: 1
+eval_strategy: steps
+eval_steps: 50
+
 ### train
 per_device_train_batch_size: 1
 gradient_accumulation_steps: 8
-learning_rate: 5.0e-6
+learning_rate: 3.0e-6  # 上次 5e-6 时 rewards 飙到 +20、margins 为负（策略相对 reference 发散），降 lr 抑制
 num_train_epochs: 3.0
 lr_scheduler_type: cosine
 warmup_ratio: 0.1

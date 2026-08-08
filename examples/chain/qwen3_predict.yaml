@@ -1,0 +1,31 @@
+# SFT 生成质量评估：对 SFT 产出的 adapter 做批量生成，算 BLEU-4 / ROUGE-1/2/L。
+# 注意：批量生成较慢；要更快可用 scripts/vllm_infer.py。
+
+### model
+model_name_or_path: /home/genghaoyu/llm/vllm/models/Qwen3-0.6B
+adapter_name_or_path: saves/qwen3-0.6b/lora/sft  # 评估 sft 阶段产物
+trust_remote_code: true
+
+### method
+stage: sft
+do_predict: true
+finetuning_type: lora
+
+### dataset
+eval_dataset: alpaca_gpt4_en_local  # 离线本地数据集
+template: qwen3_nothink
+cutoff_len: 2048
+max_samples: 50
+overwrite_cache: true
+preprocessing_num_workers: 16
+dataloader_num_workers: 4
+
+### output
+output_dir: saves/qwen3-0.6b/lora/predict
+overwrite_output_dir: true
+report_to: none  # choices: [none, wandb, tensorboard, swanlab, mlflow]
+
+### eval
+per_device_eval_batch_size: 1
+predict_with_generate: true
+ddp_timeout: 180000000
